@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+ * InfoBeans PushNotification Extension
+ *
+ * @category   Infobeans
+ * @package    PushNotification
+ * @version    1.0.0
+ *
+ * Release with version 1.0.0
+ *
+ * @author      InfoBeans Technologies Limited http://www.infobeans.com/
+ * @copyright   Copyright (c) 2019 InfoBeans Technologies Limited
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <router id="standard">
+        <route id="pushnotification" frontName="pushnotification">
+            <module name="Infobeans_PushNotification" />
+        </route>
+    </router>
+</config>

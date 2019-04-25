@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+ * InfoBeans PushNotification Extension
+ *
+ * @category   Infobeans
+ * @package    PushNotification
+ * @version    1.0.0
+ *
+ * Release with version 1.0.0
+ *
+ * @author      InfoBeans Technologies Limited http://www.infobeans.com/
+ * @copyright   Copyright (c) 2019 InfoBeans Technologies Limited
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="infobeans_modules" translate="label" sortOrder="1">
+            <label>Infobeans</label>
+        </tab>
+        <section id="push_notification" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Push Notification</label>
+            <class>separator-top</class>
+            <tab>infobeans_modules</tab>
+            <resource>Infobeans_PushNotification::config_pushnotification</resource>
+            <!-- create group for fields in section -->
+            <group id="general" translate="label" type="text" delault="1" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="status" translate="label comment" sortOrder="1" type="select" showInDefault="1" >
+                    <label>Status</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="server_key" translate="Server Key" sortOrder="7" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Server Key</label>
+                </field>
+                <field id="server_id" translate="Server Id" sortOrder="8" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Server Id</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

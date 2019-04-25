@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * InfoBeans PushNotification Extension
+ *
+ * @category   Infobeans
+ * @package    PushNotification
+ * @version    1.0.0
+ *
+ * Release with version 1.0.0
+ *
+ * @author      InfoBeans Technologies Limited http://www.infobeans.com/
+ * @copyright   Copyright (c) 2019 InfoBeans Technologies Limited
+ */
+ -->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">sendnotification_index.sendnotification_index_source</item>
+            <item name="deps" xsi:type="string">sendnotification_index.sendnotification_index_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Send Notification</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">sendnotification_index</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="send" xsi:type="string">Infobeans\PushNotification\Block\Adminhtml\Sendnotification\Edit\SendButton</item>
+            <item name="back" xsi:type="string">Infobeans\PushNotification\Block\Adminhtml\Sendnotification\Edit\BackButton</item>
+        </item>
+    </argument>
+    <dataSource name="sendnotification_index_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Infobeans\PushNotification\Model\Sendnotification\DataProvider</argument>
+            <argument name="name" xsi:type="string">sendnotification_index_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                        <item name="submit_url" xsi:type="url" path="pushnotification/sendnotification/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string"/>
+            </item>
+        </argument>
+        
+        <field name="type">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Infobeans\PushNotification\Model\Sendnotification\Options</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Select Users</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">modulename</item>
+                    <item name="dataScope" xsi:type="string">type</item>
+                    <item name="default" xsi:type="string">0</item>
+                    <item name="switcherConfig" xsi:type="array">
+                    <item name="enabled" xsi:type="boolean">true</item>
+                    <item name="rules" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="value" xsi:type="number">0</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="target" xsi:type="string">sendnotification_index.sendnotification_index.general.from_date</item>
+                                    <item name="callback" xsi:type="string">hide</item>
+                                </item>
+                                <item name="1" xsi:type="array">
+                                    <item name="target" xsi:type="string">sendnotification_index.sendnotification_index.general.to_date</item>
+                                    <item name="callback" xsi:type="string">hide</item>
+                                </item>
+                            </item>
+                        </item>
+                        <item name="1" xsi:type="array">
+                            <item name="value" xsi:type="number">1</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="target" xsi:type="string">sendnotification_index.sendnotification_index.general.from_date</item>
+                                    <item name="callback" xsi:type="string">show</item>
+                                </item>
+                                <item name="1" xsi:type="array">
+                                    <item name="target" xsi:type="string">sendnotification_index.sendnotification_index.general.to_date</item>
+                                    <item name="callback" xsi:type="string">show</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        
+        <field name="from_date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">From Date</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="dataScope" xsi:type="string">from_date</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-date" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="options" xsi:type="array">
+                        <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        
+        <field name="to_date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">To Date</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="dataScope" xsi:type="string">to_date</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-date" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="options" xsi:type="array">
+                        <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        
+        <field name="template">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Infobeans\PushNotification\Ui\Component\Template\Options</item>
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Infobeans_PushNotification/js/components/select-template</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="label" xsi:type="string">Select Template</item>
+                    <item name="dataScope" xsi:type="string">template_id</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">false</item>
+                    <item name="showCheckbox" xsi:type="boolean">true</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="listens" xsi:type="array">
+                        <item name="${ $.namespace }.${ $.namespace }:responseData" xsi:type="string">setParsed</item>
+                    </item>
+                </item>
+            </argument>
+<!--            <settings>
+                <required>true</required>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <elementTmpl>ui/grid/filters/elements/ui-select</elementTmpl>
+                <label translate="true">Select Template</label>
+                <dataScope>template_id</dataScope>
+                <componentType>field</componentType>
+                <listens>
+                    <link name="${ $.namespace }.${ $.namespace }:responseData">setParsed</link>
+                </listens>
+            </settings>-->
+<!--            <formElements>
+                <select>
+                    <settings>
+                        <options class="Infobeans\PushNotification\Ui\Component\Template\Options"/>
+                    </settings>
+                </select>
+            </formElements>-->
+        </field>
+    </fieldset>
+</form>

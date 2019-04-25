@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+ * InfoBeans PushNotification Extension
+ *
+ * @category   Infobeans
+ * @package    PushNotification
+ * @version    1.0.0
+ * @description Module menu file
+ *
+ * Release with version 1.0.0
+ *
+ * @author      InfoBeans Technologies Limited http://www.infobeans.com/
+ * @copyright   Copyright (c) 2019 InfoBeans Technologies Limited
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Infobeans_PushNotification::pushnotification" title="Infobeans" module="Infobeans_PushNotification" sortOrder="51" resource="Infobeans_PushNotification::pushnotification"/>
+        <add id="Infobeans_PushNotification::templates" title="Notification Templates" module="Infobeans_PushNotification" action="pushnotification/templates" resource="Infobeans_PushNotification::templates" parent="Infobeans_PushNotification::pushnotification"/>
+        <add id="Infobeans_PushNotification::manageusers" title="Registered Users" module="Infobeans_PushNotification" parent="Infobeans_PushNotification::pushnotification" action="pushnotification/manageusers" resource="Infobeans_PushNotification::manageusers"/>
+        <add id="Infobeans_PushNotification::sendnotifications" title="Send Notifications" module="Infobeans_PushNotification" parent="Infobeans_PushNotification::pushnotification" action="pushnotification/sendnotification" resource="Infobeans_PushNotification::sendnotifications"/>
+    </menu>
+</config>

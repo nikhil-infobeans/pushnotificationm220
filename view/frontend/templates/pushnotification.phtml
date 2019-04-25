@@ -1,0 +1,18 @@
+<?php 
+$helper = $this->helper('Infobeans\PushNotification\Helper\Data');
+$serverKey = !empty($helper->getServerKey()) ? $helper->getServerKey() : '';
+$senderId = !empty($helper->getSenderId()) ? $helper->getSenderId(): '';
+$moduleStatus = $helper->getModuleStatus();
+if($moduleStatus) {
+?>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Infobeans_PushNotification/js/notification": {
+                   "server_key" : "<?= $serverKey?>",
+                   "sender_id" : "<?= $senderId?>"
+                }
+            }
+        }
+</script>
+<?php } ?>

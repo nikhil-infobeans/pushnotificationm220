@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+ * InfoBeans PushNotification Extension
+ *
+ * @category   Infobeans
+ * @package    PushNotification
+ * @version    1.0.0
+ * @description Module dependencies
+ *
+ * Release with version 1.0.0
+ *
+ * @author      InfoBeans Technologies Limited http://www.infobeans.com/
+ * @copyright   Copyright (c) 2019 InfoBeans Technologies Limited
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="pushnotification_templates_data_source" xsi:type="string">Infobeans\PushNotification\Model\ResourceModel\Templates\Grid\Collection</item>
+                <item name="manageusers_templates_data_source" xsi:type="string">Infobeans\PushNotification\Model\ResourceModel\Users\Grid\Collection</item>
+            </argument>
+        </arguments>
+</type>
+<type name="Infobeans\PushNotification\Model\ResourceModel\Templates\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">notification_templates</argument>
+            <argument name="resourceModel" xsi:type="string">Infobeans\PushNotification\Model\ResourceModel\Templates</argument>
+        </arguments>
+</type>
+<type name="Infobeans\PushNotification\Model\ResourceModel\Users\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">notification_users</argument>
+            <argument name="resourceModel" xsi:type="string">Infobeans\PushNotification\Model\ResourceModel\Users</argument>
+        </arguments>
+</type>
+<type name="Infobeans\PushNotification\Model\ImageUploader">
+    <arguments>
+        <!-- Temporary file stored in pub/media/pushnotification/tmp/logo -->
+        <argument name="baseTmpPath" xsi:type="string">pushnotification/tmp/logo</argument>
+        <argument name="basePath" xsi:type="string">pushnotification/logo</argument>
+        <argument name="allowedExtensions" xsi:type="array">
+            <item name="jpg" xsi:type="string">jpg</item>
+            <item name="jpeg" xsi:type="string">jpeg</item>
+            <item name="gif" xsi:type="string">gif</item>
+            <item name="png" xsi:type="string">png</item>
+        </argument>
+    </arguments>
+</type>
+</config>
